@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+         /* @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Open+Sans:ital,wght@0,400;0,600;1,600&family=Roboto+Condensed:ital@1&family=Ubuntu:ital@0;1&display=swap'); */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,html{
+            height: 100%;
+            width: 100%;
+          background: linear-gradient(45deg,rgb(0, 0, 0),rgb(110, 103, 103));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calc{
+            height: 80vh;
+            width: 30vw;
+            /* background-color: bisque; */
+           border-style:hidden;
+           box-shadow:  0vh 0vh 7vh 4vh #a7b2ac;
+}
+
+
+   
+        
+
+        .screen{
+            height: 25%;
+            width: 100%;
+            /* background-color: black; */
+            padding: 5px 5px;
+            /* background: transparent; */
+        }
+
+        .in-box{
+           height: 110px;
+           width: 100%;
+           background-color: rgb(255, 255, 255);
+           font-size: xx-large;
+        text-align: right;
+        }
+
+       .numbers{
+        height: 75%;
+        width: 100%;
+        background-color: rgb(245, 240, 240);
+        display: grid;
+       justify-content: center;
+       align-items: center;
+       /* flex-wrap: wrap; */
+       grid-template-columns: auto auto auto auto;
+       /* row-gap: -2%; */
+       column-gap: 15%;
+       }
+
+     .num{
+        height: 0%;
+        width: 0%;
+        border: none;
+        color: rgb(0, 0, 0);
+        border-radius: 50%;
+        font-size: xx-large;
+    
+     }
+
+     @media (max-width:600px) {
+    .calc{
+        width: 60vw;
+        height: 90vh;
+    }
+      }
+
+       
+    </style>
+</head>
+<body>
+    <div class="calc">
+         <div class="screen">
+               <input type="text"  class="in-box">
+         </div>
+
+         <div class="numbers">
+            <button class="num">C</button>
+            <button class="num">del</button>
+            <button class="num">%</button>
+            <button class="num">/</button>
+            <button class="num">7</button>
+            <button class="num">8</button>
+            <button class="num">9</button>
+            <button class="num">*</button>
+            <button class="num">4</button>
+            <button class="num">5</button>
+            <button class="num">6</button>
+            <button class="num">-</button>
+            <button class="num">1</button>
+            <button class="num">2</button>
+            <button class="num">3</button>
+            <button class="num">+</button>
+            <button class="num">00</button>
+            <button class="num">0</button>
+            <button class="num">.</button>
+            <button class="num">=</button>
+         </div>
+    </div>
+
+    <script>
+        var string=""
+        var input=document.querySelector("input")
+       var buttons=document.querySelectorAll(".num")
+       Array.from(buttons).forEach(function(button){
+          button.addEventListener("click",function(e){
+
+            if(e.target.innerText=="="){
+                string=eval(string)
+                input.value=string;
+            }
+
+            else if(e.target.innerText=="C"){
+                string=""
+                input.value=string;
+            }
+
+            else if(e.target.innerText=="del"){
+                string=string.substr(0,string.length-1)
+                input.value=string;
+            }
+
+            else{
+              console.log(e)
+              string=string+e.target.innerText
+              input.value=string;
+            }
+          })
+       })
+     
+    </script>
+</body>
+</html>
