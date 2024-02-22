@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+ <script>
+        
+//using function to access the id number
+function userLoggedIn(username) {
+if(!username){ //if username is not passed
+    console.log("name is not defined");
+    console.log("first define name to access");
+    return;
+}
+
+ return `${username} is logged in. Your id number is 1122`; //if username is passed
+}
+
+const myPassword = prompt("enter password ") //ask the password in prompt
+if (myPassword == 1234) {
+    const password = userLoggedIn("prajwal") //calling a function and store the return value in password
+    console.log(password);
+}
+else if(myPassword != 1234){ //if the password is not valid
+    {
+        console.log("invalid password:");
+    }
+}
+
+    </script>
+    
+</body>
+</html>
